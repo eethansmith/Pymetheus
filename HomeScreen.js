@@ -1,50 +1,62 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, StatusBar } from 'react-native';
 
 function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Button to navigate to Camera Screen */}
+      <StatusBar barStyle="light-content" backgroundColor="#202124" />
+      {/* App Title */}
+      <Text style={styles.appTitle}>PYMETHEUS</Text>
+
+
+      {/* Aesthetic button */}
       <TouchableOpacity 
         style={styles.button} 
         onPress={() => navigation.navigate('Camera')}
       >
-        <Text style={styles.buttonText}>PYMETHEUS</Text>
-      </TouchableOpacity>
-
-      {/* Additional button to navigate to Chat Screen */}
-      <TouchableOpacity 
-        style={[styles.button, styles.buttonSpacing]} 
-        onPress={() => navigation.navigate('Chat')}
-      >
-        <Text style={styles.buttonText}>Go to Chat</Text>
+        <Text style={styles.buttonText}>SOLVE</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
+  
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#202124',
+    backgroundColor: '#202124', // Dark background color
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
+
+  appTitle: {
+    color: '#ea80fc',
+    fontSize: 32,
+    fontFamily: 'Avenir',
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
+  },
+
   button: {
-    backgroundColor: 'transparent', // Transparent background
-    padding: 10,
-    borderRadius: 5,
-    borderWidth: 2, // Border width for the outline
-    borderColor: '#bdc1c6', // Border color
-    marginTop: 20, // Add some spacing between the buttons
+    backgroundColor: '#ea80fc', // Vibrant button color
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 25, // Rounded corners
+    borderWidth: 0,
+    shadowColor: "#000", // Shadow for depth
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   buttonText: {
-    color: '#ea80fc', // Button text color
-    fontSize: 18, // Font size
-    fontFamily: 'Avenir', // Font family (ensure the font is available)
-  },
-  buttonSpacing: {
-    marginTop: 20, // Adds spacing between buttons
+    color: '#FFFF', // Text color that contrasts with the button
+    fontSize: 20, // Larger font size
+    fontFamily: 'Avenir', // Stylish font family
+    textTransform: 'uppercase', // UPPERCASE letters for emphasis
+    fontWeight: 'bold', // Bold font weight
   },
 });
 
