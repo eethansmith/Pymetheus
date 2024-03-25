@@ -15,7 +15,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Ethan.inc.Pymetheus",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to allow the user to take a picture of code in order to give a solution."
+      }
     },
     "android": {
       "adaptiveIcon": {
