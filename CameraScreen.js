@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, PermissionsAndroid, Platform, Image, StyleSheet, Alert } from 'react-native';
-
 import { RNCamera } from 'react-native-camera';
 import { useNavigation } from '@react-navigation/native';
 
@@ -18,12 +17,12 @@ const CameraScreen = () => {
     const cameraTimeout = setTimeout(() => {
       if (!cameraReady) {
         Alert.alert("Camera Error", "Camera initialisation taking too long.");
-        navigation.navigate('ChatScreen', { message: 'Camera initialisation failed.' });
+        navigation.navigate('Chat');
       }
-    }, 5000); // 5 seconds timeout
+    }, 5000); // 10 seconds timeout
 
     return () => clearTimeout(cameraTimeout);
-  }, [cameraReady, navigation]);
+  }, [cameraReady]);
 
   const requestCameraPermission = async () => {
     try {
@@ -66,11 +65,7 @@ const CameraScreen = () => {
   };
 
   const handleUsePicture = () => {
-    if (takePicture) {
-      navigation.navigate('ChatScreen', { photoUri: takenPhotoUri });
-    } else {
-      navigation.navigate('ChatScreen', { message: 'No picture taken.' });
-    }
+    navigation.navigate('ChatScreen', { photoUri: takenPhotoUri });
   };
 
   // Function to reset the taken photo URI and return to camera view
